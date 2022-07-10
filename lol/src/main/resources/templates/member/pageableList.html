@@ -8,13 +8,13 @@
 		<header th:insert="header_nav.html"></header>
 		<!-- request.getAttribute("test") -->
 		<h1>카테고리리스트 pageableList</h1>
-		<form action="/member/list/1">
+		<form>
 			<div class="input-group">
 			  <select name="sort" class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
 			    <option selected>정렬할 칼럼</option>
-			    <option value="id">id</option>
-			    <option value="name">name</option>
-			    <option value="regdate">regdate</option>
+			    <option value="title">제목</option>
+			    <option value="memberId">글쓴이</option>
+			    <option value="postTime">날짜</option>
 			  </select>
 			  <select name="desc" class="form-select" id="inputGroupSelect04" aria-label="Example select with button addon">
 			    <option selected>정렬순서</option>
@@ -27,31 +27,20 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>id</th>
-					<th>name</th>
-					<th>regdate</th>
+					<th>제목</th>
+					<th>글쓴이</th>
+					<th>날짜</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="member:${memberList}">
-					<td th:text="${member.id}"></td>
-					<td th:text="${member.name}"></td>
-					<td th:text="${member.regdate}"></td>					
+					<td th:text="${member.title}"></td>
+					<td th:text="${member.memberId}"></td>
+					<td th:text="${member.postTime}"></td>					
 				</tr>
 			</tbody>
 		</table>	
-		<p>
-			totalPage: <strong th:text="${memberList.totalPages}"></strong>
-			newPage: <strong th:text="${memberList.number+1}"></strong>
-			hasNext: <strong th:text="${memberList.hasNext}"></strong>
-			hasPrev: <strong th:text="${memberList.hasPrevious}"></strong>
-		</p>
-		pageStart pageEnd pageNow
-		<div th:with="totalPages=${memberList.totalPages}, nowPage=${memberList.number+1}, 
-						hasNext=${memberList.hasNext}, hasPrev=${cateList.hasPrevious},
-						startPage=${((nowPage-2)<=0)?1:nowPage-2},
-						endPage=${((nowPage+2)>=totalPages)?totalPages:nowPage+2}">
-			<nav th:insert="/pagination.html"></nav>
-		</div>
+		
+		
 	</body>
 </html>
