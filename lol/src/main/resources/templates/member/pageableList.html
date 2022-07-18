@@ -20,10 +20,13 @@
 			    <option selected>정렬순서</option>
 			    <option value="desc">큰거부터(desc)</option>
 			    <option value="asc">작은거부터(asc)</option>
-			  </select >
+			  </select>
+			  
 			  <button class="btn btn-outline-primary" type="submit">Button</button>
 			</div>
 		</form>
+		<a href="/member/inserted">글쓰기</a>
+		
 		<table class="table">
 			<thead>
 				<tr>
@@ -34,13 +37,26 @@
 			</thead>
 			<tbody>
 				<tr th:each="member:${memberList}">
-					<td th:text="${member.title}"></td>
+				
+					<td><a th:text="${member.title}" th:href="@{/member/board/view(id=${member.Num})}"></a></td>
 					<td th:text="${member.memberId}"></td>
-					<td th:text="${member.postTime}"></td>					
+					<td th:text="${member.postTime}"></td>	
+					
+					
 				</tr>
 			</tbody>
 		</table>	
 		
-		
+		<div th:with="	totalPages=${memberList.totalPages}, 
+						nowPage=${memberList.number+1}, 
+						hasNext=${memberList.hasNext}, 
+						hasPrev=${memberList.hasPrevious},
+						startPage=${((nowPage-3)<=0)?1:nowPage-3},
+						endPage=${((nowPage+3)>=totalPages)?totalPages:nowPage+3
+						
+						}
+						">
+			<nav th:insert="/pagination.html"></nav>					
+		</div>
 	</body>
 </html>

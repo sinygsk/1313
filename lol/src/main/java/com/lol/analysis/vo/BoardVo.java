@@ -45,9 +45,20 @@ public class BoardVo {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	@Column(name="post_time", insertable =false,updatable = false)
 	private Date postTime;
+	private int score;
 	
 	
 	
+
+	public int getScore() {
+		return score;
+	}
+
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
 
 	public Integer getNum() {
 		return Num;
@@ -107,6 +118,7 @@ public class BoardVo {
 		return "BoardVo [Num=" + Num + ", memberId=" + memberId + ", title=" + title + ", contents=" + contents
 				+ ", postTime=" + postTime + "]";
 	}
+
 
 
 

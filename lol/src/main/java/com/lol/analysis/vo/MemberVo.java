@@ -21,7 +21,6 @@ public class MemberVo {
 	private String name;
 	private String email;
 	private String phone;
-	private int age;
 	private String gender;
 	private Date regdate;
 	private int grade;
@@ -55,12 +54,6 @@ public class MemberVo {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
-	}
 	public String getGender() {
 		return gender;
 	}
@@ -82,7 +75,7 @@ public class MemberVo {
 	@Override
 	public String toString() {
 		return "MemberVo [id=" + id + ", pw=" + pw + ", name=" + name + ", email=" + email + ", phone=" + phone
-				+ ", age=" + age + ", gender=" + gender + ", regdate=" + regdate + ", grade=" + grade + "]";
+				+ ", gender=" + gender + ", regdate=" + regdate + ", grade=" + grade + "]";
 	}
 	
 	

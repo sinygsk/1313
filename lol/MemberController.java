@@ -27,9 +27,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.lol.analysis.entity.Board;
 import com.lol.analysis.repository.BoardRepository;
 import com.lol.analysis.repository.MemberRepository;
+import com.lol.analysis.service.BoardService;
 import com.lol.analysis.service.BoardService2;
 import com.lol.analysis.vo.BoardVo;
 import com.lol.analysis.vo.MemberVo;

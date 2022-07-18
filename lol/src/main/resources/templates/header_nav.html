@@ -28,13 +28,29 @@
 				<li class="nav-item">
 					<a class="nav-link" href="/member/login.do">로그인</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/member/logout.do">로그아웃</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/member/signup.do">회원가입</a>
-				</li>
 			</ul>
+			<div th:if="${session.memVo}">
+						<!--<span th:if="${session.memVo}!=null" th:text="${session.memVo.id}"></span>-->
+						<span th:text="${session.memVo}?${session.memVo.id}:''"></span>
+						(<span th:text="${session.memVo?.name}"></span>)
+						님 로그인 
+						&nbsp;/&nbsp;
+						
+						&nbsp;/&nbsp;
+						<a 	href="/member/logout.do">
+							로그아웃
+						</a>
+
+					</div>
+	 				<div class="d-flex" th:if="!${session.memVo}">
+						<a 	href="/member/login.do">
+							로그인
+						</a>&nbsp;/&nbsp; 
+						<a 	href="/member/signup.do">
+							회원가입
+						</a>
+					</div>
+			
 		</nav>
 	</div>
 </body>
